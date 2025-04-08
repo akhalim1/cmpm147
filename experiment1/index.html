@@ -53,17 +53,20 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>The aim is to make a Noir fiction generator for authors to get started on their stories.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>Something that was a glaring issue to me when I first generated my story was the name of the detective. I wanted to integrate a method that made the detective name stay consistent throughout the text so it didn’t seem like the protagonist just randomly changed names. I did try to solve it by using gender neutral terms like “them” in place of “$detective” but that seemed too vague and I wanted something more concrete. </p>
+				<p>I solved the problem by adding a const “$detective” variable at the beginning. Then in the replacer function if the current match is “detective” then it would pick that stored const instead of picking a random variable every single time. Now I result in something like this:</p>
+				<p>For the innovative portion, I aimed to add a feature that allowed users to download the generated story as a .txt file. Setting up the button on the HTML side was easy enough but for the JS part, I actually had no idea how to do this so I just looked through Google for the answer. Eventually I found an article (credited in my code) which I used as a base to create the download button functionality. </p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>For this project, I started out by imitating an existing story generator and replacing it with my own values suitable for my theme. The highs of this project was probably when I integrated a simple improvement by making the detective’s name stay consistent throughout the story. A low would have been when I had to resort to an article to find out how to let users save their stories as a .txt file. Overall I found this to be a useful experience which helped me get a bit more comfortable with JS and HTML which I am rusty with. 
+				</p>
 			</div>
 
 		</section>
