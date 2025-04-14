@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 2 - A Beautiful Starfield</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -32,7 +32,7 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 2 - A Beautiful Starfield</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
@@ -40,22 +40,26 @@
 				</div>
                 <div class="fullscreen-box">
                     <button id="fullscreen">Fullscreen</button>
+					<button id="reimagine">Reimagine</button>
                 </div>
 			</div>
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>My goal is to make a randomly generated starfield scene.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>I wanted to start by familiarizing myself with p5.js and generating a foundation to build up from. The image I selected was a starfield in the vastness of space (credit to turtlespaces.org for the source image). I started by changing the background color to something akin to a starry night. As for the generation part, I wanted to populate the night sky with stars so I made a loop and randomized the position, size, number, and color of points for each created star. This creation of the star itself was done via the drawStar helper function. The drawStar function was the most complex part of my code. To start off, we have an angle variable which gives us the angle between each outer tip of the star. And then we have a halfAngle variable which is half of that value. I'll explain the halfAngle usage later. Now we make a loop that goes around a circle (via TWO_PI and iterated using the angle variable). First, we focus on making the outer points. For each point, the horizontal and vertical positions are created on each iteration using cosine and sine. Cosine being the horizontal position, and sine being the vertical position. Each position is multiplied by a radius to establish how far the point is from the center. Now we want to start on working with the inner points. We do this by adding the halfAngle established before to the iteration and multiplying it by another radius (shorter than the one for the outer point obviously). The halfAngle is used so there’s consistent spacing between the inner points and counterpoints.</p>
+				<p>To make the stars more lively, I wanted to integrate a “twinkle” sort of animation so the space would come to life instead of remaining stationary. I had a map function which took in a number produced by sin() (for a smooth wavy pattern that goes from -1 to 1) and converted it into a number between 2 new values. I selected 0.8 and 1.2 because I found them to be a reasonable enough size for the stars. The star scales oscillates between the aforementioned values giving it a shrink/grow like visual effect.</p>
+				<p>As for the craters, I wanted to randomly generate them so the number of craters and its size and locations varied. The position of the craters were determined by using polar coordinates which then were converted into Cartesian coordinates. This is done by taking the polar coordinates, r which represents the length of the line and cosine(angle) which represents how much the length is pointing to the right. When we multiply those together it will result giving the Cartesian coordinates aka the horizontal distance that points to the right. The very same is done for r * sin(angle) to get the vertical side. Now both the horizontal and vertical arguments were passed into the eclipse in addition to the crater’s size which was randomly generated.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>Familiarizing myself with p5.js was a challenge but like with anything I just needed to get more used to it. Making the “twinkle” effect was probably the nicest part of the project in my opinion. However, apart from learning p5.js, the most challenging part was the use of Polar Coordinates and the conversion to Cartesian coordinates. In addition, generating the inner and outer points of the star and its positions was very tough. Refreshing my math and understanding the usage of cosine and sine in finding the x and y coordinates took a bit of a learning curve. In these cases, I found Stackoverflow to be a helpful resource. 
+				</p>
 			</div>
 
 		</section>

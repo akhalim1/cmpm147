@@ -69,11 +69,14 @@ function main() {
   $("#clicker").click(generate);
 
   $("#download").click(function () {
-    //https://www.tutorialspoint.com/how-to-create-and-save-text-file-in-javascript
+    //Credit: https://www.tutorialspoint.com/how-to-create-and-save-text-file-in-javascript
     const story = $("#box").text();
+    // create the Blob and store the text
     const blob = new Blob([story], { type: "text/plain" });
+    // store it as a downloadable URL
     const url = URL.createObjectURL(blob);
 
+    // create a download link / set the name
     const link = document.createElement("a");
     link.href = url;
     link.download = "noir_story.txt";
