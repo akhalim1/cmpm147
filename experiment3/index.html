@@ -47,17 +47,20 @@
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>The goal of this experiment is to create a randomly generated dungeon layout.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>To expand upon what I had, I wanted to integrate new logic that created 3 rooms and each room was connected with tunnels.</p>
+				<p>The generateGrid function builds a dungeon layout first initializing the grid filled with “_” to represent empty space/walls. Then it creates three randomly sized rectangular rooms in different sections of the grid using the generateRoom function. Each room uses “.” to represent the space that is the floor. </p>
+				<p>These rooms are then connected using drawTunnel. This is done by having generateRoom returning the coordinates of each created room. drawTunnel gets these center coordinates and uses them to connect the rooms together drawing a path between the rooms. The tunnels are drawn horizontally to make sure the x-axis is lined up with the target room’s center. Then it is moved vertically along the y-axis to finally reach the target.</p>
+				<p>The supporting functions like gridCode and drawContext are used to display how each tile connects with its neighboring tile.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>For this project, I was able to implement a dungeon generator that created 3 different sized rooms connected via tunnels. In addition, there was a flickering chest to give the dungeon a bit of life as a point of interest. However, I think there are some areas in which I could improve. I think the overall layout is severely lacking and could definitely benefit from more variation.</p>
 			</div>
 
 		</section>
