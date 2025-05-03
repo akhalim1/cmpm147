@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 5 - Evolutionary Impressions</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<script type="text/javascript" src="./js/my_design.js" DEFER></script>
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 5 - Evolutionary Impressions</h1>
+			
+			
+			<div class="minor-section">
+				<div id="canvas-wrapper">
+				  <div id="controls">
+					<select id="dropper"></select>
+					<button id="restart">restart</button>
+					<p>
+					  Mutation rate (<span id="rate"></span>%):<br />
+					  <input id="slider" type="range" min="1" max="100" value="100" />
+					</p>
+					<p id="active"></p>
+					<p>Active score: <span id="activeScore"></span></p>
+					<p>Exploration rate: <span id="fpsCounter"></span> fps</p>
+					<p id="best"></p>
+					<p>Best score: <span id="bestScore"></span></p>
+				  </div>
+			  
+				  <div id="memory-box">
+					<h3>Memory</h3>
+					<div id="memory" data-max-items="16"></div>
+				  </div>
+				</div>
+			  </div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>This project creates a generative visual mutation based on an inspirational image.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>To imitate the project, I mainly looked at the example code starting with “initDesign”. The implementation was the same for the most part however I followed the advice on the slide and shrunk the canvas (divided by 4) for better mutation. I also decided to sample the color from the photo as opposed to it being random. To get the color I used “.get(x, y)” from the inspiration image and also multiplied x and y by 4 to scale the position up by 4 (since it was shrunk by 4 established earlier with resizeCanvas). The result should get me the correct color directly from the image for each shape drawn. The size was also more controlled, opting for a range from 10 to 40 instead of based on half the canvas width and height which could make it too large or too small. </p>
+				<p>To integrate and extend the original code (and using the mut function from the class slides) I opted to create a grayscale circle based generator. I started with renderDesign to draw circles instead of boxes which changed the visual feel from blocky to something a bit more fluid.</p>
+				<p>A new strategy was also integrated for the mutation by calculating the average brightness of each shape and only mutating that grayscale value. The calculation of the average brightness was done by taking the rgb values (c[0], c[1], c[2]) and dividing it by 3 to get the grayscale value. That’s then passed into the mut function as the current fill object.</p>
+				<p>For the innovation part, I wanted to add a bit more variety to the shapes so I started by adding a shape property in initDesign.</p>
+				<p>Then in renderDesign I checked for the randomized shape property and produced the shape based on that value. The result was something a bit more visually diverse. </p>
+				<p>However I wanted each shape to have meaning as the above picture seemed a bit chaotic and meaningless. To make a more intentional pattern, I made the shape based on how bright/dark the sampled pixel is from the image. I settled on the light areas being in circles, the mid tone being in squares, and the dark areas would be triangles. </p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>I believe the main goal of this project was achieved in that visual elements from an inspiration image were transformed into something abstract yet somewhat still resembling the original image. One strength I would note is the brightness being coded to the shape (ex. circles for bright pixels, triangles for dark ones, etc.). The addition of the transparency and increased shape count also was something that improved the general structure of the canvas. I found myself mostly fine tuning the parameters to make sure the end result at least resembled the image instead of producing something too chaotic. A weakness of this project was that while the overall “form” of the original image was retained somewhat, it still struggles to emerge clearly in the mutation, only really being very noticeable with high contrast images. I also did not bother much with the colors, sticking to only monochrome. However, I learned a lot through this process namely with mutation and abstraction combined to represent a photographic feature in a unique stylized way. </p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>
